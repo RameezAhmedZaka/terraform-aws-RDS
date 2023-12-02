@@ -36,24 +36,4 @@
     password               = "wordpress123!"
     }
     
-    lb = {
-    lb_name                = "wordpress-elb"
-    lb_sg                  = "wordpress-elb-sg"
-    target_group_name      = "wordpress-target-group"
-    }
-
-    asg = {
-    inbound_ports     = ["22", "443", "80"]
-    instance_sg_name  = "wordpress-SG"
-    image             = "ami-00c6177f250e07ec1"
-    instance_type     = "t2.micro"
-    key_name          = "ubuntu-key"
-    name              = "wordpress"
-    autoscaling_name  = "wordpress-ASG"
-    db_username       = "wordpress"
-    db_user_password  = "wordpress123!"
-    db_name           = "database1"
-    instance_name     = "Wordpress-server"
-    }
-
     

@@ -26,14 +26,4 @@ output "db_RDS" {
     value = module.rds_module.db_RDS
 }
 
-output "elb_dns_name" {
-  value = module.lb_module.elb_dns_name
-}
 
-output "lb_sg_id" {
-  value = module.lb_module.lb_sg_id
-}
-
-output "target_group_arn" {
-  value = module.lb_module.target_group_arn
-}

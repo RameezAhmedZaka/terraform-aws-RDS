@@ -45,33 +45,3 @@ module "rds_module" {
     
 }
 
-module "lb_module" {
-    source                 = "./LB"
-    vpc_id                 = module.vpc_module.vpc_id
-    public_subnet_id       = module.vpc_module.public_subnet_id
-    public_subnet_id2      = module.vpc_module.public_subnet_id2
-    lb_name                = var.lb.lb_name
-    lb_sg                  = var.lb.lb_sg
-    target_group_name      = var.lb.target_group_name
-}
-
-module "asg_module" {
-    source             = "./ASG"
-    vpc_id             = module.vpc_module.vpc_id
-    db_RDS             = module.rds_module.db_RDS
-    target_group_arn   = module.lb_module.target_group_arn
-    public_subnet_id   = module.vpc_module.public_subnet_id
-    public_subnet_id2  = module.vpc_module.public_subnet_id2
-    instance_sg_id     = module.instance_module.instance_sg_id
-    inbound_ports      = var.asg.inbound_ports
-    instance_sg_name   = var.asg.instance_sg_name
-    key_name           = var.asg.key_name
-    name               = var.asg.name
-    instance_type      = var.asg.instance_type
-    image              = var.asg.image
-    autoscaling_name   = var.asg.autoscaling_name
-    db_username        = var.asg.db_username
-    db_user_password   = var.asg.db_user_password
-    db_name            = var.asg.db_name
-    instance_name      = var.asg.instance_name
-    }

@@ -47,29 +47,3 @@ variable "rds" {
     })
 }
 
-
-variable "lb" {
-type = object ({
-    lb_name           = string
-    lb_sg             = string
-    target_group_name = string
-    })
-}
-
-
-variable "asg" {
-  type    = object({
-    inbound_ports     = list(number)
-    instance_sg_name  = string
-    key_name          = string
-    name              = string
-    instance_type     = string
-    image             = string
-    autoscaling_name  = string
-    db_username       = string
-    db_user_password  = string
-    db_name           = string
-    instance_name     = string
-    })
-}
-
